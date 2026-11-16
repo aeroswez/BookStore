@@ -92,5 +92,10 @@
    
 }
 
+.showComment{
+    overflow:scroll;
+    height:150px;
+}
+
 
 
