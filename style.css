@@ -47,7 +47,7 @@
     height: 50px;
 }
 
-.bookGallery{
+/*.bookGallery{
     background-color: #06171E;
     color:white;
     width: 100%;
@@ -56,6 +56,40 @@
     font-family: 'Figtree', sans-serif;
     min-height: 100%;
 
+}*/
+
+.bookCard{
+    height: 600px;
+    width:350px;
+    color: white;
+    background-color: #064c6a;
+    font-size: 20px;
+}
+
+.bookImage{
+    height:120px;
+    width: 120px;
+}
+
+.priceLike{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.likeHeart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+.heart{
+    color: red;
+    font-size: 30px;
+   
 }
 
 

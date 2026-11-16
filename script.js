@@ -174,10 +174,29 @@ let books = [
     }
   ]
 
-  const bookRef = document.getElementById("bookContainer");
+  
 
 
   function renderBooks(){
+    const bookRef = document.getElementById("bookContainer");
+    bookRef.innerHTML="";
+    for(index = 0; index<books.length; index++){
+        console.log("book length", books.length);
+        bookRef.innerHTML = `<div class='bookCard'> <h2>${books[index].name}</h2><hr>
+                            <img class='bookImage' src='./assets/img/book-cover.jpg'><hr>
+                            <div class='priceLike'><p>${books[index].price}</p>
+                            <div class='likeHeart'>
+                                <span>${books[index].likes}</span>
+                                <i class="heart fa fa-heart-o"></i>
+                                
+                            </div>
+                            </div>
+                            <p>Author&nbsp;&nbsp;&nbsp;:${books[index].author}</span></p>
+                            <p>ErscheinungsJahr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:${books[index].publishedYear}
+                            <p>Genre:${books[index].genre}</p><hr>
+                            <div><h3>Kommentare:</h3></div>
+                            </div>`
+    }
 
 
   }
