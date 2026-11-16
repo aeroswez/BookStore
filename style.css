@@ -47,3 +47,16 @@
     height: 50px;
 }
 
+.bookGallery{
+    background-color: #06171E;
+    color:white;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: 'Figtree', sans-serif;
+    min-height: 100%;
+
+}
+
+
+
