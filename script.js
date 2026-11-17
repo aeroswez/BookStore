@@ -182,7 +182,7 @@ let books = [
     bookRef.innerHTML="";
     for(index = 0; index<books.length; index++){
         console.log("book length", books.length);
-        bookRef.innerHTML += `<div class='bookCard'> <h2>${books[index].name}</h2><hr>
+        bookRef.innerHTML += `<div class='bookCard'> <div><h2>${books[index].name}</h2><hr>
                             <img class='bookImage' src='./assets/img/book-cover.jpg'><hr>
                             <div class='priceLike'><p>${books[index].price}</p>
                             <div class='likeHeart'>
@@ -194,8 +194,12 @@ let books = [
                             <p>Author&nbsp;&nbsp;&nbsp;:${books[index].author}</span></p>
                             <p>ErscheinungsJahr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:${books[index].publishedYear}
                             <p>Genre:${books[index].genre}</p><hr>
-                            <div class="showComment"><h3>Kommentare:</h3>
+                            <div class="showComment" id="comments_${index}"><h3>Kommentare:</h3>
                             ${renderComments(index)}
+                            </div>
+                            <div class="commentClass"><input id="comment_input_${index}" type="text" placeholder="Schreibe dein Kommentar...">
+                            <button onclick="addComment(${index})"><img src="./assets/icon/send.svg"></button></div>
+                            
                             </div>
                             </div>`
     }
@@ -209,9 +213,9 @@ let books = [
     console.log("commentlength",commentLength);
     let commentText="";
 
-    for(let index = 0; index < commentLength; index++){
+    for(let index = commentLength-1; index >= 0; index--){
              commentText+=       `<p>[${books[bookIndex].comments[index].name}]</p>
-                     <p>:${books[bookIndex].comments[index].comment}</p>`;
+                     <span>:${books[bookIndex].comments[index].comment}</span>`;
     }
 
     return commentText;
@@ -219,3 +223,24 @@ let books = [
     
 
   }
+
+  function addComment(bookIndex) {
+  const inputRef = document.getElementById(`comment_input_${bookIndex}`);
+  const text = inputRef.value.trim();
+
+  if (text === "") 
+    {
+      return;
+    }
+
+  books[bookIndex].comments.push({
+    name: "Sweta",
+    comment: text
+  });
+
+  
+  inputRef.value = "";
+
+
+  document.getElementById(`comments_${bookIndex}`).innerHTML = renderComments(bookIndex);
+}

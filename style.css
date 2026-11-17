@@ -47,20 +47,20 @@
     height: 50px;
 }
 
-/*.bookGallery{
-    background-color: #06171E;
-    color:white;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    font-family: 'Figtree', sans-serif;
-    min-height: 100%;
+.bookGallery{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+}
 
-}*/
+h2{
+    font-size: 20px;
+}
 
 .bookCard{
     height: 600px;
-    width:350px;
+    width:400px;
     color: white;
     background-color: #064c6a;
     font-size: 20px;
@@ -93,8 +93,16 @@
 }
 
 .showComment{
-    overflow:scroll;
+    overflow:auto;
     height:150px;
+}
+
+.commentClass{
+    color: black;
+}
+
+.commentClass > button{
+    background-color: none;
 }
 
 
