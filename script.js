@@ -172,9 +172,13 @@ let books = [
         }
       ]
     }
-  ]
+  ];
 
-  
+   function init()
+  {
+    getFromLocalStorage();
+    renderBooks();
+  }
 
 
   function renderBooks(){
@@ -187,8 +191,7 @@ let books = [
                             <div class='priceLike'><p>${books[index].price}</p>
                             <div class='likeHeart'>
                                 <span>${books[index].likes}</span>
-                                <i class="heart fa fa-heart-o"></i>
-                                
+                                <i class="heart fa fa-heart-o"></i>  
                             </div>
                             </div>
                             <p>Author&nbsp;&nbsp;&nbsp;:${books[index].author}</span></p>
@@ -205,42 +208,62 @@ let books = [
     }
 
 
+
   }
 
-  function renderComments(bookIndex){
+
+  function renderComments(bookIndex)
+  {
     
     let commentLength= books[bookIndex].comments.length;
     console.log("commentlength",commentLength);
     let commentText="";
 
-    for(let index = commentLength-1; index >= 0; index--){
+    for(let index = commentLength-1; index >= 0; index--)
+    {
              commentText+=       `<p>[${books[bookIndex].comments[index].name}]</p>
                      <span>:${books[bookIndex].comments[index].comment}</span>`;
     }
-
     return commentText;
-
-    
 
   }
 
-  function addComment(bookIndex) {
-  const inputRef = document.getElementById(`comment_input_${bookIndex}`);
-  const text = inputRef.value.trim();
 
-  if (text === "") 
+  function addComment(bookIndex)
+  { 
+    const inputRef = document.getElementById(`comment_input_${bookIndex}`);
+    const text = inputRef.value.trim();
+
+    if (text === "") 
     {
       return;
     }
 
-  books[bookIndex].comments.push({
-    name: "Sweta",
-    comment: text
-  });
+    books[bookIndex].comments.push(
+    {
+      name: "Sweta",
+      comment: text
+    });
 
-  
-  inputRef.value = "";
+    inputRef.value = "";
+    document.getElementById(`comments_${bookIndex}`).innerHTML = renderComments(bookIndex);
+    saveToLocalStorage();
+    
+  }
 
+  function saveToLocalStorage()
+  {
+    localStorage.setItem("myBooks", JSON.stringify(books));
+  }
 
-  document.getElementById(`comments_${bookIndex}`).innerHTML = renderComments(bookIndex);
-}
+  function getFromLocalStorage()
+  {
+    let myBooks = JSON.parse(localStorage.getItem("myBooks"));
+    if(myBooks !=null)
+    {
+      books=myBooks;
+    }
+
+    else return books;
+     console.log(books);
+  }
