@@ -84,6 +84,11 @@ h2{
     gap: 5px;
 }
 
+button{
+    background-color:#064c6a;
+    border: none;
+}
+
 
 
 .heart{

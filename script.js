@@ -190,8 +190,8 @@ let books = [
                             <img class='bookImage' src='./assets/img/book-cover.jpg'><hr>
                             <div class='priceLike'><p>${books[index].price}</p>
                             <div class='likeHeart'>
-                                <span>${books[index].likes}</span>
-                                <i class="heart fa fa-heart-o"></i>  
+                                <span id="numberOfLikes${index}">${books[index].likes}</span>
+                               <button onclick="toggleLike(${index})"> <i id="heart${index}" class="heart fa fa-heart-o"></i> </button>
                             </div>
                             </div>
                             <p>Author&nbsp;&nbsp;&nbsp;:${books[index].author}</span></p>
@@ -206,6 +206,7 @@ let books = [
                             </div>
                             </div>`
     }
+
 
 
 
@@ -249,6 +250,29 @@ let books = [
     document.getElementById(`comments_${bookIndex}`).innerHTML = renderComments(bookIndex);
     saveToLocalStorage();
     
+  }
+
+  function toggleLike(heartIndex)
+  {
+   const heartSelection= document.getElementById(`heart${heartIndex}`);
+   let likeCount= books[heartIndex].likes;
+   if(heartSelection.classList.contains("fa-heart-o"))
+   {
+    likeCount++;
+    books[heartIndex].likes= likeCount;
+    document.getElementById(`numberOfLikes${heartIndex}`).innerHTML=books[heartIndex].likes;
+    heartSelection.classList.replace("fa-heart-o", "fa-heart");
+   }
+
+   else if (heartSelection.classList.contains("fa-heart"))
+   {
+    likeCount--;
+    books[heartIndex].likes= likeCount;
+    document.getElementById(`numberOfLikes${heartIndex}`).innerHTML=books[heartIndex].likes;
+    heartSelection.classList.replace("fa-heart", "fa-heart-o");
+   }
+
+
   }
 
   function saveToLocalStorage()
