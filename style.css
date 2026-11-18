@@ -159,7 +159,6 @@ html body {
 .showComment {
   flex: 1;
   min-height: 0;
-  margin-top: 0;
   overflow-y: auto;
   color: #f3f6f7;
   scrollbar-color: #65b7cc #082b35;

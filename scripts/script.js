@@ -47,7 +47,7 @@ function addComment(bookIndex)
 
   books[bookIndex].comments.push(newComments);
   inputRef.value = "";
-  document.getElementById(`comments_${bookIndex}`).innerHTML =
+  document.getElementById(`comments_${bookIndex}`).innerHTML +=
   renderComments(bookIndex);
   saveToLocalStorage();
 }
