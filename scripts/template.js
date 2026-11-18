@@ -1,4 +1,5 @@
-function returnBookTemplate(index){
+function returnBookTemplate(index)
+{
     return `<div class="bookCard">
       <div>
         <h2>${books[index].name}</h2>
@@ -38,4 +39,11 @@ function returnBookTemplate(index){
         </div>
       </div>
     </div>`
+}
+
+function returnCommentTemplate(bookIndex,index)
+{
+  return `<p>[${books[bookIndex].comments[index].name}]</p>
+          <span>:${books[bookIndex].comments[index].comment}</span>`;
+
 }
