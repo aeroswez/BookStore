@@ -205,7 +205,8 @@ let books = [
                                     ${renderComments(index)}
                                   </div>
                                   <div class="commentClass">
-                                    <input id="comment_input_${index}" type="text" placeholder="Schreibe dein Kommentar...">
+                                    <input id="comment_input_${index}" type="text" placeholder="Schreibe dein Kommentar..."
+                                     onkeydown="if (event.key === 'Enter') addComment(${index})">
                                     <button onclick="addComment(${index})"><img src="./assets/icon/send.svg"></button>
                                   </div>
                             

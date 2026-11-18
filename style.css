@@ -209,18 +209,11 @@ html body {
   background-color: #155365;
   color: #f3f6f7;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .commentClass input::placeholder {
   color: #a4c0c8;
-}
-
-.commentClass button img {
-  display: block;
-  width: 27px;
-  height: 27px;
-  object-fit: contain;
 }
 
 @media (max-width: 480px) {
