@@ -196,9 +196,11 @@ let books = [
                                       <button onclick="toggleLike(${index})">${renderHeart(index)}</button>
                                     </div>
                                   </div>
-                                  <p>Author&nbsp;&nbsp;&nbsp;:${books[index].author}</span></p>
-                                  <p>ErscheinungsJahr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:${books[index].publishedYear}
-                                  <p>Genre:${books[index].genre}</p><hr>
+                                  <div class="bookDetails">
+                                    <span class="bookDetailLabel">Author</span><span>: ${books[index].author}</span>
+                                    <span class="bookDetailLabel">ErscheinungsJahr</span><span>: ${books[index].publishedYear}</span>
+                                    <span class="bookDetailLabel">Genre</span><span>: ${books[index].genre}</span>
+                                  </div><hr>
                                   <div class="showComment" id="comments_${index}"><h3>Kommentare:</h3>
                                     ${renderComments(index)}
                                   </div>
