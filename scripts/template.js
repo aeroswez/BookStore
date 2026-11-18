@@ -22,9 +22,11 @@ function returnBookTemplate(index) {
           <span>: ${books[index].genre}</span>
         </div>
         <hr>
-        <div class="showComment" id="comments_${index}">
+        <div class="showComment">
           <h3>Kommentare:</h3>
-          ${renderComments(index)}
+          <div id="comments_${index}">
+            ${renderComments(index)}
+          </div>
         </div>
         <div class="commentClass">
           <input
